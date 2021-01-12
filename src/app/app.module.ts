@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { UsersService } from './users.service';
+import { SnackbarService } from './snackbarservice';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { UsersService } from './users.service';
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, SnackbarService],
   bootstrap: [AppComponent]
 })
 
