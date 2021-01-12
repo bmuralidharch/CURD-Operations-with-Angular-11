@@ -67,7 +67,7 @@ export class CreateuserComponent implements OnInit {
       this.formSubmitted = false;
       if (this.id) {
         this.userslist.forEach(element => {
-          if (this.userslist.indexOf(element) === this.id) {
+          if (this.userslist.indexOf(element) == this.id) {
             this.userslist[this.id] = userform.value;
             localStorage.setItem('users', JSON.stringify(this.userslist));
             this.snackBar.open('User Updated Successfully');

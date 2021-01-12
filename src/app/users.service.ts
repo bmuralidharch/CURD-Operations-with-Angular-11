@@ -11,6 +11,7 @@ export class UsersService {
 
   getusers(){
     this.userslist = JSON.parse(localStorage.getItem('users') || '[]');
+    return this.userslist;
   }
 
   userdelete(user) {

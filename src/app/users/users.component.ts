@@ -48,6 +48,9 @@ export class UsersComponent implements OnInit, AfterViewInit  {
   ngOnInit() {
     this.userslist = this.userservice.getusers();
     this.dataSource = new MatTableDataSource(this.userslist);
+    if (this.userslist === undefined || this.userslist.length === 0 ) {
+    this.getusers();
+    }
   }
 
   ngAfterViewInit() {
@@ -56,20 +59,17 @@ export class UsersComponent implements OnInit, AfterViewInit  {
 
   // to  get users
   getusers() {
-
-    if (this.userslist.length === 0) {
       this.userservice.setusers(this.users);
       this.ngOnInit();
-    }
 
   }
 
   // to  delete user
   delete(user) {
-    this.userservice.userdelete(user).subscribe((data: any) => {
-      this.getusers();
+    this.userservice.userdelete(user); {
+      this.ngOnInit();
       this.snackBar.open('User Deleted Successfully');
-    });
+    }
     this.ngAfterViewInit();
   }
 
