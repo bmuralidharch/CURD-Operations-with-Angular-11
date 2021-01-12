@@ -1,0 +1,39 @@
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  /* Style the buttons */
+  .btn {
+    border: none;
+    outline: none;
+    padding: 7px 8px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-size: 10 !important;
+  }
+  
+  .btn.active {
+    background-color: #155387;
+    color: white;
+  }
+
+  #btnContainer{
+      margin-left:10px;
+      margin-right: 15px;
+  }
+
+#addbtn{
+    background-color: #155387 !important;
+color: #ffffff !important;
+float: right;
+}

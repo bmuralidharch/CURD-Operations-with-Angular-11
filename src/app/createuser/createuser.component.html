@@ -1,0 +1,73 @@
+<form [formGroup]="creationForm" (ngSubmit)="createuser(creationForm)" class="form">
+    <!-- Name Column -->
+    <div class="group-gap">
+        <mat-form-field class="form-element">
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="creationForm.get('name').hasError('required')">
+                Enter name
+            </mat-error>
+            <mat-error *ngIf="creationForm.get('name').hasError('pattern')">
+                Enter valid name
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <!-- Email Column -->
+
+    <div class="group-gap">
+        <mat-form-field class="form-element">
+            <input matInput placeholder="Email Address" formControlName="email">
+            <mat-error *ngIf="creationForm.get('email').hasError('required')">
+                Enter Email Address
+            </mat-error>
+            <mat-error *ngIf="creationForm.get('email').hasError('pattern')">
+                Enter valid Email Address
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <!-- Password Column -->
+
+    <div class="group-gap">
+        <mat-form-field class="form-element">
+            <input type="password" matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="creationForm.get('password').hasError('required')">
+                Password is required </mat-error>
+        </mat-form-field>
+    </div>
+    <!-- Confirm Password Column -->
+
+    <div class="group-gap">
+        <mat-form-field class="form-element">
+            <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword"
+                (keyup)="checkpassword()">
+            <mat-error *ngIf="creationForm.get('confirmPassword').hasError('required')">
+                Confirm Password is required </mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="confirmpassowrderr">confirm password didnt match </mat-error>
+    </div>
+    <!-- Country Column -->
+    <mat-form-field>
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country" placeholder="Select Country">
+            <mat-option *ngFor="let country of countrylist" [value]="country.value">
+                {{ country.name }}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="creationForm.get('country').hasError('required')">
+            Select Country
+        </mat-error>
+    </mat-form-field>
+    <!-- Gender Column -->
+    <div class="group-gap">
+        <h5 class="mb-3">Gender</h5>
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div class="form-element">
+        <button mat-raised-button [routerLink]="['']" class="button">Back </button>
+        <button mat-raised-button color="primary" type="submit" class="button">Submit </button>
+    </div>
+
+</form>
